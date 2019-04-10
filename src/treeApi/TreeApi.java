@@ -33,7 +33,6 @@ public class TreeApi<T> {
 
     //cantidad de elementos que hay por nivel
     public int elementsAtLevel(BinaryTree<T> a, int level) {
-        if(level>height(a) || level<0) throw new RuntimeException("Invalid level");
         if (a.isEmpty())
             return 0;
         if (level == 0)
@@ -74,14 +73,10 @@ public class TreeApi<T> {
             return false;
         if (a.isEmpty())
             return b.isEmpty();
+        if (b.isEmpty())
+            return false;
         if (!a.getRoot().equals(b.getRoot()))
             return false;
-        if (a.getLeft().isEmpty() && a.getRight().isEmpty())
-            return b.getRight().isEmpty() && b.getLeft().isEmpty();
-        if (a.getLeft().isEmpty())
-            return b.getLeft().isEmpty() && equals(a.getRight(), b.getRight());
-        if (a.getRight().isEmpty())
-            return b.getRight().isEmpty() && equals(a.getLeft(), b.getLeft());
         return equals(a.getLeft(), b.getLeft()) && equals(a.getRight(), b.getRight());
     }
 
@@ -152,19 +147,32 @@ public class TreeApi<T> {
         }
         if(!a.getLeft().isEmpty() && a.getRight().isEmpty())
             return stable(a.getLeft());
-
         if(a.getLeft().isEmpty() && !a.getRight().isEmpty())
             return stable(a.getRight());
         return stable(a.getLeft()) && stable(a.getRight());
     }
 
-//    public boolean occursTree(BinaryTree<T> a, BinaryTree<T> b) {
-//        if (a.isEmpty() && b.isEmpty())
-//            return true;
-//        if(a.isEmpty() || b.isEmpty())
-//            return false;
-//
-//    }
+    public boolean occursTree(BinaryTree<T> a, BinaryTree<T> b) {
+        if (size(b) > size(a))
+            return false;
+        if (a.isEmpty() && b.isEmpty())
+            return true;
+        if(a.isEmpty() || b.isEmpty())
+            return false;
+        if (occurs(a, b))
+            return true;
+        return occursTree(a.getLeft(), b) || occursTree(a.getRight(), b);
+    }
+
+    private boolean occurs(BinaryTree<T> a, BinaryTree<T> b) {
+        if (a.isEmpty())
+            return b.isEmpty();
+        if (b.isEmpty())
+            return true;
+        if (!a.getRoot().equals(b.getRoot()))
+            return false;
+        return occurs(a.getLeft(), b.getLeft()) && occurs(a.getRight(), b.getRight());
+    }
 
     public void showFrontier(BinaryTree<T> a) {
         for (T t : frontier(a)) {
@@ -185,6 +193,38 @@ public class TreeApi<T> {
             list.add(a.getRoot());
         addFrontierList(a.getLeft(), list);
         addFrontierList(a.getRight(), list);
+    }
+
+
+    public void preorder(BinaryTree<T> a) {
+        if (!a.isEmpty()) {
+            System.out.println(a.getRoot());
+            preorder(a.getLeft());
+            preorder(a.getRight());
+        }
+    }
+
+    public void inorder(BinaryTree<T> a) {
+        if (!a.isEmpty()) {
+            inorder(a.getLeft());
+            System.out.println(a.getRoot());
+            inorder(a.getRight());
+        }
+    }
+
+    public void postorder(BinaryTree<T> a) {
+        if (!a.isEmpty()) {
+            postorder(a.getLeft());
+            postorder(a.getRight());
+            System.out.println(a.getRoot());
+        }
+    }
+
+    public void perlevel(BinaryTree<T> a) { // falta terminar
+        if (a.isEmpty())
+            return;
+        if (size(a) == 1)
+            System.out.println(a.getRoot());
     }
 
 }
