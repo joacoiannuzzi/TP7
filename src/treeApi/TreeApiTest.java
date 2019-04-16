@@ -88,6 +88,19 @@ public class TreeApiTest {
     }
 
     @Test
+    public void occurrences(){
+        assertEquals(0, treeApi.occurrences(shortTree1, 6));
+        assertEquals(2, treeApi.occurrences(longTree4, 2));
+        assertEquals(0, treeApi.occurrences(emptyTree, 0));
+    }
+
+    @Test
+    public void elementsAtLevel(){
+        assertEquals(2, treeApi.elementsAtLevel(shortTree1, 1));
+        assertEquals(0, treeApi.elementsAtLevel(emptyTree, 0));
+    }
+
+    @Test
     public void leaves(){
         assertEquals(2, treeApi.leaves(shortTree1));
         assertEquals(4, treeApi.leaves(longTree1));
