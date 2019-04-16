@@ -44,8 +44,6 @@ public class TreeApi<T> {
 
     //la altura maxima del arbol
     public int height(BinaryTree<T> a) {
-        if (a.isEmpty())
-            return 0;
         int position = 0;
         while (elementsAtLevel(a, position) != 0) {
             position++;
@@ -150,10 +148,6 @@ public class TreeApi<T> {
             if (a.getRoot() <= a.getRight().getRoot())
                 return false;
         }
-        if(!a.getLeft().isEmpty() && a.getRight().isEmpty())
-            return stable(a.getLeft());
-        if(a.getLeft().isEmpty() && !a.getRight().isEmpty())
-            return stable(a.getRight());
         return stable(a.getLeft()) && stable(a.getRight());
     }
 
@@ -286,6 +280,4 @@ public class TreeApi<T> {
         }
         return binaryTree;
     }
-
-    //TODO: printTree para comparar con los recorridos por nivel y demas, asi es mas facil de verlo.
 }
