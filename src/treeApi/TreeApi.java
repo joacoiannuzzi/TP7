@@ -119,6 +119,7 @@ public class TreeApi<T> {
         return true;
     }
 
+    //indica si el arbol esta completo
     public boolean complete(BinaryTree<T> a) {
         if(a.isEmpty())
             return false;
@@ -129,6 +130,7 @@ public class TreeApi<T> {
         return complete(a.getLeft()) && complete(a.getRight());
     }
 
+    //indica si el arbol esta lleno
     public boolean full(BinaryTree<T> a) {
         if (a.isEmpty())
             return false;
@@ -136,6 +138,7 @@ public class TreeApi<T> {
         return elementsAtLevel(a, h) == Math.pow(2, h);
     }
 
+    //indica si el arbol es estable
     public boolean stable(BinaryTree<Integer> a) {
         if (size((BinaryTree<T>) a) <= 1)
             return true;
@@ -176,18 +179,21 @@ public class TreeApi<T> {
         return occurs(a.getLeft(), b.getLeft()) && occurs(a.getRight(), b.getRight());
     }
 
+    //imprime la frontera del arbol binario
     public void showFrontier(BinaryTree<T> a) {
         for (T t : frontier(a)) {
-            System.out.println(t);
+            System.out.print(t + " ");
         }
     }
 
+    //devuelve un ArrayList con la frontera del arbol binario
     public ArrayList<T> frontier(BinaryTree<T> a) {
         ArrayList<T> list = new ArrayList<>();
         addFrontierList(a, list);
         return list;
     }
 
+    //añade la frontera a un ArrayList
     private void addFrontierList(BinaryTree<T> a, ArrayList<T> list) {
         if (a.isEmpty())
             return;
@@ -197,32 +203,35 @@ public class TreeApi<T> {
         addFrontierList(a.getRight(), list);
     }
 
-
+    //recorre el arbol por preorden
     public void preorder(BinaryTree<T> a) {
         if (!a.isEmpty()) {
-            System.out.println(a.getRoot());
+            System.out.print(a.getRoot() + " ");
             preorder(a.getLeft());
             preorder(a.getRight());
         }
     }
 
+    //recorre el arbol por inorden
     public void inorder(BinaryTree<T> a) {
         if (!a.isEmpty()) {
             inorder(a.getLeft());
-            System.out.println(a.getRoot());
+            System.out.print(a.getRoot() + " ");
             inorder(a.getRight());
         }
     }
 
+    //recorre el arbol por postorden
     public void postorder(BinaryTree<T> a) {
         if (!a.isEmpty()) {
             postorder(a.getLeft());
             postorder(a.getRight());
-            System.out.println(a.getRoot());
+            System.out.print(a.getRoot() + " ");
         }
     }
 
-    public void perlevel(BinaryTree<T> a) { // falta terminar
+    //recorre el arbol por niveles
+    public void perlevel(BinaryTree<T> a) {
         if (a.isEmpty())
             return;
         ArrayList listRoot = new ArrayList();
@@ -234,7 +243,7 @@ public class TreeApi<T> {
         }
 
         for (Object o : listRoot) {
-            System.out.println(o);
+            System.out.print(o + " ");
         }
 
 
@@ -252,7 +261,7 @@ public class TreeApi<T> {
         return t;
     }
 
-
+    //salva en disco al arbol binario
     public void saveOnDisk(BinaryTree<T> a) {
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(
@@ -264,6 +273,7 @@ public class TreeApi<T> {
         }
     }
 
+    //recupera del disco el arbol binario
     public BinaryTree<T> getFromDisk() {
         BinaryTree<T> binaryTree = null;
         try {
@@ -276,4 +286,6 @@ public class TreeApi<T> {
         }
         return binaryTree;
     }
+
+    //TODO: printTree para comparar con los recorridos por nivel y demas, asi es mas facil de verlo.
 }

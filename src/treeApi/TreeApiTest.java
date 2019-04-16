@@ -19,6 +19,16 @@ public class TreeApiTest {
                     new BinaryTree<>(6),
                     new BinaryTree<>(2)));
 
+    private BinaryTree<Integer> tree1 = new BinaryTree<>(10,
+            new BinaryTree<>(8,
+                    new BinaryTree<>(3),
+                    new BinaryTree<>(6,
+                            new BinaryTree<>(5),
+                            new BinaryTree<>())),
+            new BinaryTree<>(7,
+                    new BinaryTree<>(6),
+                    new BinaryTree<>(3)));
+
     private BinaryTree<Integer> tree2 = new BinaryTree<>(8,
             new BinaryTree<>(7,
                     new BinaryTree<>(6),
@@ -39,44 +49,47 @@ public class TreeApiTest {
                     new BinaryTree<>(5),
                     new BinaryTree<>(1)));
 
-    private BinaryTree<Integer> tree1 = new BinaryTree<>(10,
-            new BinaryTree<>(8,
-                    new BinaryTree<>(3),
-                    new BinaryTree<>(6,
-                            new BinaryTree<>(5),
-                            new BinaryTree<>())),
-            new BinaryTree<>(7,
-                    new BinaryTree<>(6),
-                    new BinaryTree<>(3)));
 
-    private BinaryTree<Integer> t = new BinaryTree<>();
+    private BinaryTree<Integer> emptyTree = new BinaryTree<>();
 
-    private BinaryTree<Integer> t1 = new BinaryTree<>(9,
+    private BinaryTree<Integer> shortTree1 = new BinaryTree<>(9,
             new BinaryTree<>(5),
             new BinaryTree<>(4));
 
-    private BinaryTree<Integer> t2 = new BinaryTree<>(9,
+    private BinaryTree<Integer> shortTree2 = new BinaryTree<>(9,
             new BinaryTree<>(),
             new BinaryTree<>(4));
 
     @Test
     public void leaves(){
-        assertEquals(2, treeApi.leaves(t1));
+        assertEquals(2, treeApi.leaves(shortTree1));
         assertEquals(4, treeApi.leaves(tree1));
+    }
+
+    @Test
+    public void sum(){
+        assertEquals(18, treeApi.sum(shortTree1));
+        assertEquals(48, treeApi.sum(tree1));
+    }
+
+    @Test
+    public void sumMultipleOf3(){
+        assertEquals(9, treeApi.sumMultiplesOf3(shortTree1));
+        assertEquals(18, treeApi.sumMultiplesOf3(tree1));
     }
 
     @Test
     public void equals() {
         assertTrue(treeApi.equals(tree, tree));
         assertFalse(treeApi.equals(tree, tree1));
-        assertTrue(treeApi.equals(t, t));
-        assertFalse(treeApi.equals(t2, t1));
+        assertTrue(treeApi.equals(emptyTree, emptyTree));
+        assertFalse(treeApi.equals(shortTree2, shortTree1));
     }
 
     @Test
     public void isomorphic() {
         assertTrue(treeApi.isomorphic(tree, tree1));
-        assertFalse(treeApi.isomorphic(t, tree1));
+        assertFalse(treeApi.isomorphic(emptyTree, tree1));
     }
 
     @Test
@@ -92,8 +105,8 @@ public class TreeApiTest {
         assertFalse(treeApi.full(tree1));
         assertFalse(treeApi.full(tree2));
         assertFalse(treeApi.full(tree3));
-        assertFalse(treeApi.full(t));
-        assertTrue(treeApi.full(t1));
+        assertFalse(treeApi.full(emptyTree));
+        assertTrue(treeApi.full(shortTree1));
     }
 
     @Test
@@ -105,14 +118,16 @@ public class TreeApiTest {
     @Test
     public void stable() {
         assertFalse(treeApi.stable(tree2));
-        assertTrue(treeApi.stable(t));
-        assertTrue(treeApi.stable(t1));
+        assertTrue(treeApi.stable(emptyTree));
+        assertTrue(treeApi.stable(shortTree1));
         assertTrue(treeApi.stable(tree1));
     }
 
     @Test
     public void frontier() {
+        System.out.print("Frontier: ");
         treeApi.showFrontier(tree);
+        System.out.println();
     }
 
     @Test
@@ -128,13 +143,39 @@ public class TreeApiTest {
     }
 
     @Test
-    public void perLevel(){
-        treeApi.perlevel(tree2);
+    public void preOrder(){
+        System.out.print("preOrder: ");
+        treeApi.preorder(tree2);
+        System.out.println();
 
     }
 
     @Test
-    public void disk(){
+    public void inOrder(){
+        System.out.print("inOrder: ");
+        treeApi.inorder(tree2);
+        System.out.println();
+
+    }
+
+    @Test
+    public void postOrder(){
+        System.out.print("postOrder: ");
+        treeApi.postorder(tree2);
+        System.out.println();
+
+    }
+
+    @Test
+    public void perLevel(){
+        System.out.print("perLevels: ");
+        treeApi.perlevel(tree2);
+        System.out.println();
+
+    }
+
+    @Test
+    public void saveOnDisk(){
         treeApi.saveOnDisk(tree);
         BinaryTree<Integer> j = treeApi.getFromDisk();
         assertTrue(treeApi.equals(tree, j));
