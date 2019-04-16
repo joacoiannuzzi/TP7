@@ -1,7 +1,9 @@
 package treeApi;
 
 import tree.BinaryTree;
+import tree.DynamicQueue;
 
+import java.io.*;
 import java.util.ArrayList;
 
 public class TreeApi<T> {
@@ -155,9 +157,9 @@ public class TreeApi<T> {
     public boolean occursTree(BinaryTree<T> a, BinaryTree<T> b) {
         if (size(b) > size(a))
             return false;
-        if (a.isEmpty() && b.isEmpty())
+        if (b.isEmpty())
             return true;
-        if(a.isEmpty() || b.isEmpty())
+        if(a.isEmpty())
             return false;
         if (occurs(a, b))
             return true;
@@ -223,8 +225,55 @@ public class TreeApi<T> {
     public void perlevel(BinaryTree<T> a) { // falta terminar
         if (a.isEmpty())
             return;
-        if (size(a) == 1)
-            System.out.println(a.getRoot());
+        ArrayList listRoot = new ArrayList();
+        DynamicQueue<BinaryTree<T>> queueTree = new DynamicQueue();
+        queueTree.enqueue(a);
+
+        while(!queueTree.isEmpty()){
+            listRoot.add(makeQueue(queueTree));
+        }
+
+        for (Object o : listRoot) {
+            System.out.println(o);
+        }
+
+
     }
 
+    private T makeQueue(DynamicQueue<BinaryTree<T>> queue) {
+        if(!queue.peek().getLeft().isEmpty())
+            queue.enqueue(queue.peek().getLeft());
+
+        if(!queue.peek().getRight().isEmpty())
+            queue.enqueue(queue.peek().getRight());
+
+        T t = queue.peek().getRoot();
+        queue.dequeue();
+        return t;
+    }
+
+
+    public void saveOnDisk(BinaryTree<T> a) {
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(
+                    new FileOutputStream(new File("BinaryTreeFile")));
+            outputStream.writeObject(a);
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public BinaryTree<T> getFromDisk() {
+        BinaryTree<T> binaryTree = null;
+        try {
+            ObjectInputStream inputStream = new ObjectInputStream(
+                    new FileInputStream(new File("BinaryTreeFile")));
+            binaryTree = (BinaryTree<T>) inputStream.readObject();
+            inputStream.close();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return binaryTree;
+    }
 }

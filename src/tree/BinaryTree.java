@@ -1,18 +1,21 @@
 package tree;
 
-public class BinaryTree<T> {
+import java.io.Serializable;
+
+public class BinaryTree<T> implements Serializable {
 
     private DoubleNode<T> root;
 
     public BinaryTree() {
         root = null;
     }
+
     public BinaryTree(T o) {
         root = new DoubleNode(o);
     }
 
     public BinaryTree(T o, BinaryTree<T> left, BinaryTree<T> right) {
-        root = new DoubleNode<T>(o, left.root, right.root);
+        root = new DoubleNode<>(o, left.root, right.root);
     }
 
     public boolean isEmpty() {
@@ -36,7 +39,7 @@ public class BinaryTree<T> {
 
     }
 
-    private class DoubleNode <T> {
+    private class DoubleNode <T> implements Serializable{
 
         T elem;
         DoubleNode<T> right, left;

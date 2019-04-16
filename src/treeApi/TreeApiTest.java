@@ -127,4 +127,18 @@ public class TreeApiTest {
         assertFalse(treeApi.occursTree(tree, g2));
     }
 
+    @Test
+    public void perLevel(){
+        treeApi.perlevel(tree2);
+
+    }
+
+    @Test
+    public void disk(){
+        treeApi.saveOnDisk(tree);
+        BinaryTree<Integer> j = treeApi.getFromDisk();
+        assertTrue(treeApi.equals(tree, j));
+        assertFalse(treeApi.equals(tree1, j));
+    }
+
 }
