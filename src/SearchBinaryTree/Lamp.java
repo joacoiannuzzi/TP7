@@ -1,6 +1,6 @@
 package SearchBinaryTree;
 
-public class Lamp {
+public class Lamp implements Comparable<Lamp>{
     String lampCode, lampType;
     int lampWatts, amount;
 
@@ -46,5 +46,15 @@ public class Lamp {
 
     public int getAmount() {
         return amount;
+    }
+
+    @Override
+    public int compareTo(Lamp o) {
+        if(this.lampWatts > o.lampWatts){
+            return 1;
+        } else if(this.lampWatts < o.lampWatts){
+            return -1;
+        }
+        return 0;
     }
 }
