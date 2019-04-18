@@ -6,7 +6,7 @@ import SearchBinaryTree.SearchBinaryTree;
 
 import java.util.ArrayList;
 
-public class SearchBinaryTreeApi<T>{
+public abstract class SearchBinaryTreeApi<T>{
 
     public SearchBinaryTree<T> importListData(LinkedList<T> list){
         SearchBinaryTree<T> searchBinaryTree = new SearchBinaryTree<T>();
@@ -19,23 +19,9 @@ public class SearchBinaryTreeApi<T>{
     }
 
      //recorre el arbol por niveles
-    public void perlevel(SearchBinaryTree<T> a) {
-        if (a.isEmpty())
-            return;
-        ArrayList listRoot = new ArrayList();
-        DynamicQueue<SearchBinaryTree<T>> queueTree = new DynamicQueue();
-        queueTree.enqueue(a);
+    public abstract void perlevel(SearchBinaryTree<T> a);
 
-        while(!queueTree.isEmpty()){
-            listRoot.add(makeQueue(queueTree));
-        }
-
-        for (Object o : listRoot) {
-            System.out.print(o + " ");
-        }
-    }
-
-    private T makeQueue(DynamicQueue<SearchBinaryTree<T>> queue) {
+    public T makeQueue(DynamicQueue<SearchBinaryTree<T>> queue) {
         if(!queue.peek().getLeft().isEmpty())
             queue.enqueue(queue.peek().getLeft());
 

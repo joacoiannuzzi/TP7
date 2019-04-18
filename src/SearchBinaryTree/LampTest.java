@@ -1,5 +1,6 @@
 package SearchBinaryTree;
 
+import SearchBinaryTreeApi.ApiLamp;
 import SearchBinaryTreeApi.SearchBinaryTreeApi;
 import org.junit.Test;
 
@@ -22,7 +23,7 @@ public class LampTest {
         Lamp lamp = new Lamp("ABCDE", "lowEfficient", 15, 30);
         searchBinaryTree.insert(lamp);
 
-        SearchBinaryTreeApi searchBinaryTreeApi = new SearchBinaryTreeApi();
+        SearchBinaryTreeApi searchBinaryTreeApi = new ApiLamp();
         searchBinaryTreeApi.perlevel(searchBinaryTree);
     }
 
@@ -33,7 +34,7 @@ public class LampTest {
         productStock.insert(new Lamp("ADEJF", "medEfficient", 17, 7));
         productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
 
-        SearchBinaryTreeApi searchBinaryTreeApi = new SearchBinaryTreeApi();
+        SearchBinaryTreeApi searchBinaryTreeApi = new ApiLamp();
 
         SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);
 

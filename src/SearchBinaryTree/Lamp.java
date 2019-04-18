@@ -50,11 +50,6 @@ public class Lamp implements Comparable<Lamp>{
 
     @Override
     public int compareTo(Lamp o) {
-        if(this.lampWatts > o.lampWatts){
-            return 1;
-        } else if(this.lampWatts < o.lampWatts){
-            return -1;
-        }
-        return 0;
+        return this.lampCode.compareTo(o.lampCode);
     }
 }
