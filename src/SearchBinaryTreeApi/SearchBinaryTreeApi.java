@@ -21,6 +21,8 @@ public abstract class SearchBinaryTreeApi<T>{
      //recorre el arbol por niveles
     public abstract void perlevel(SearchBinaryTree<T> a);
 
+    public abstract void inorder(SearchBinaryTree<T> a);
+
     public T makeQueue(DynamicQueue<SearchBinaryTree<T>> queue) {
         if(!queue.peek().getLeft().isEmpty())
             queue.enqueue(queue.peek().getLeft());
