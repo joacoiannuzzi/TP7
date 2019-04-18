@@ -38,14 +38,19 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
     public void options(SearchBinaryTree<Lamp> a){
 
         System.out.println("Options: ");
+        System.out.println("0 -> Add a Lamp");
+        System.out.println("1 -> Remove a Lamp");
+        System.out.println("2 -> Modify a Lamp");
+        System.out.println("3 -> Show stock");
 
         Scanner scanner = new Scanner(System.in);
         int option = scanner.nextInt();
 
         switch (option){
             case 0:
-                Lamp lamp = new Lamp(scanner.next(), scanner.next(), scanner.nextInt(), scanner.nextInt());
+                Lamp lamp = new Lamp(scanner.next().toUpperCase(), scanner.next(), scanner.nextInt(), scanner.nextInt());
                 a.insert(lamp);
+            case 1:
         }
     }
 }
