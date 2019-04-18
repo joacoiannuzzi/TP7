@@ -25,4 +25,18 @@ public class LampTest {
         SearchBinaryTreeApi searchBinaryTreeApi = new SearchBinaryTreeApi();
         searchBinaryTreeApi.perlevel(searchBinaryTree);
     }
+
+    @Test
+    public void importTest(){
+        StockList productStock = new StockList();
+        productStock.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
+        productStock.insert(new Lamp("ADEJF", "medEfficient", 17, 7));
+        productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
+
+        SearchBinaryTreeApi searchBinaryTreeApi = new SearchBinaryTreeApi();
+
+        SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);
+
+        searchBinaryTreeApi.perlevel(searchBinaryTree);
+    }
 }

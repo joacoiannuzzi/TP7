@@ -65,6 +65,7 @@ public class LinkedList<T> {
         while (currentNode != null){
             if(counter == index){
                 element =  previous;
+                break;
             } else {
                 previous = currentNode;
                 currentNode = currentNode.getNext();
