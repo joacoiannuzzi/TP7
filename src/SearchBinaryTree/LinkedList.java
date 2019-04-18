@@ -53,7 +53,6 @@ public class LinkedList<T> {
 
     public T getAtPosition(int index){
         Node<T> currentNode = this.head;
-        Node<T> previous = null;
 
         if(index == 0 && currentNode != null){
             return currentNode.getData();
@@ -64,10 +63,9 @@ public class LinkedList<T> {
 
         while (currentNode != null){
             if(counter == index){
-                element =  previous;
+                element =  currentNode;
                 break;
             } else {
-                previous = currentNode;
                 currentNode = currentNode.getNext();
                 counter++;
             }

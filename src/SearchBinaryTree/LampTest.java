@@ -13,15 +13,19 @@ public class LampTest {
         productStock.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
         productStock.insert(new Lamp("ADEJF", "medEfficient", 17, 7));
         productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
-        productStock.printList();
+
+        productStock.getAtPosition(0).printData();
+        productStock.getAtPosition(1).printData();
+        productStock.getAtPosition(2).printData();
 
     }
 
     @Test
     public void treeTest(){
         SearchBinaryTree<Lamp> searchBinaryTree = new SearchBinaryTree<Lamp>();
-        Lamp lamp = new Lamp("ABCDE", "lowEfficient", 15, 30);
-        searchBinaryTree.insert(lamp);
+        searchBinaryTree.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
+        searchBinaryTree.insert(new Lamp("ADEJF", "medEfficient", 17, 7));
+        searchBinaryTree.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
 
         SearchBinaryTreeApi searchBinaryTreeApi = new ApiLamp();
         searchBinaryTreeApi.perlevel(searchBinaryTree);
