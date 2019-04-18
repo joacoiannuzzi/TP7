@@ -56,7 +56,6 @@ public class LampTest {
         productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
         productStock.insert(new Lamp("ADEJF", "medEfficient", 7, 7));
 
-
         ApiLamp searchBinaryTreeApi = new ApiLamp();
 
         SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);

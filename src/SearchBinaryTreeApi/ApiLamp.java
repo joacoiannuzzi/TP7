@@ -51,6 +51,13 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
                 Lamp lamp = new Lamp(scanner.next().toUpperCase(), scanner.next(), scanner.nextInt(), scanner.nextInt());
                 a.insert(lamp);
             case 1:
+
+            case 2:
+
+            case 3:
+                this.inorder(a);
+            default:
+                System.exit(0);
         }
     }
 }
