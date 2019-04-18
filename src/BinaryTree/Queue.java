@@ -1,4 +1,4 @@
-package tree;
+package BinaryTree;
 
 public interface Queue<T> {
 

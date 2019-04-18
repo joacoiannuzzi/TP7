@@ -1,21 +1,12 @@
-package tree;
+package SearchBinaryTree;
 
 import java.io.Serializable;
 
-public class BinaryTree<T> implements Serializable {
-
+public class SearchBinaryTree<T> {
     private DoubleNode<T> root;
 
-    public BinaryTree() {
+    private SearchBinaryTree(){
         root = null;
-    }
-
-    public BinaryTree(T o) {
-        root = new DoubleNode(o);
-    }
-
-    public BinaryTree(T o, BinaryTree<T> left, BinaryTree<T> right) {
-        root = new DoubleNode<>(o, left.root, right.root);
     }
 
     public boolean isEmpty() {
@@ -26,20 +17,36 @@ public class BinaryTree<T> implements Serializable {
         return root.elem;
     }
 
-    public BinaryTree<T> getLeft() {
-        BinaryTree<T> t = new BinaryTree<>();
+    public SearchBinaryTree<T> getLeft() {
+        SearchBinaryTree<T> t = new SearchBinaryTree<T>();
         t.root = root.left;
         return t;
     }
 
-    public BinaryTree<T> getRight() {
-        BinaryTree<T> t = new BinaryTree<>();
+    public SearchBinaryTree<T> getRight() {
+        SearchBinaryTree<T> t = new SearchBinaryTree<T>();
         t.root = root.right;
         return t;
 
     }
 
-    private class DoubleNode <T> implements Serializable{
+    public boolean exist(Comparable x){
+        return true;
+    }
+
+    public T getMin(){
+        return null;
+    }
+
+    public T getMax(){
+        return null;
+    }
+
+    public T search(Comparable x){
+        return null;
+    }
+
+    private class DoubleNode <T> implements Serializable {
 
         T elem;
         DoubleNode<T> right, left;

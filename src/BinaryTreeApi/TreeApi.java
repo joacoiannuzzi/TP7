@@ -1,7 +1,7 @@
-package treeApi;
+package BinaryTreeApi;
 
-import tree.BinaryTree;
-import tree.DynamicQueue;
+import BinaryTree.BinaryTree;
+import BinaryTree.DynamicQueue;
 
 import java.io.*;
 import java.util.ArrayList;

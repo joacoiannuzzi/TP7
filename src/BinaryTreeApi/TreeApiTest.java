@@ -1,7 +1,7 @@
-package treeApi;
+package BinaryTreeApi;
 
 import org.junit.Test;
-import tree.BinaryTree;
+import BinaryTree.BinaryTree;
 
 import static org.junit.Assert.*;
 
@@ -78,7 +78,7 @@ public class TreeApiTest {
             new BinaryTree<>(),
             new BinaryTree<>(4));
 
-    private BinaryTree<Integer> emptyTree = new BinaryTree<>();
+    private BinaryTree<Integer> emptyTree = new BinaryTree<Integer>();
 
     @Test
     public void size(){

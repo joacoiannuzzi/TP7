@@ -1,4 +1,4 @@
-package tree;
+package BinaryTree;
 
 
 public class DynamicQueue<T> implements Queue<T> {
