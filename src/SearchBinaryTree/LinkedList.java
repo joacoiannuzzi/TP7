@@ -4,6 +4,11 @@ import BinaryTree.Node;
 
 public class LinkedList<T> {
     Node head;
+    int size;
+
+    public LinkedList() {
+        this.size = 0;
+    }
 
     public void insert(T data){
         Node newNode = new Node(data);
@@ -19,6 +24,8 @@ public class LinkedList<T> {
 
             last.setNext(newNode);
         }
+
+        size++;
     }
 
     public void deleteByKey(T key){
@@ -27,6 +34,8 @@ public class LinkedList<T> {
 
         if(currentNode != null && currentNode.getData() == key){
             this.head = currentNode.getNext();
+            size--;
+            return;
         }
 
         while(currentNode != null && currentNode.getData() != key){
@@ -36,8 +45,13 @@ public class LinkedList<T> {
 
         if(currentNode != null){
             previous.setNext(currentNode.getNext());
+            size--;
         } else {
             throw new RuntimeException("Not found");
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 }
