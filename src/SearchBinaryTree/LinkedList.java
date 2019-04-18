@@ -3,6 +3,7 @@ package SearchBinaryTree;
 import BinaryTree.Node;
 
 public class LinkedList<T> {
+
     Node<T> head;
     private int size;
 

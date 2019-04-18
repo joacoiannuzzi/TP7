@@ -1,8 +1,10 @@
 package SearchBinaryTree;
 
+import BinaryTree.Tree;
+
 import java.io.Serializable;
 
-public class SearchBinaryTree<T> {
+public class SearchBinaryTree<T> implements Tree<T> {
     private DoubleNode<T> root;
 
     public SearchBinaryTree(){

@@ -1,6 +1,7 @@
 package SearchBinaryTree;
 
 public class Lamp implements Comparable<Lamp>{
+
     String lampCode, lampType;
     int lampWatts, amount;
 
