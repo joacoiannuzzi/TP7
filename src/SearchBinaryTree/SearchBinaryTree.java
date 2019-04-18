@@ -1,6 +1,6 @@
 package SearchBinaryTree;
 
-import BinaryTree.Tree;
+import BinaryTreeApi.Tree;
 
 import java.io.Serializable;
 

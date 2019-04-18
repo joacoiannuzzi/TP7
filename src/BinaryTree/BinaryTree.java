@@ -1,5 +1,7 @@
 package BinaryTree;
 
+import BinaryTreeApi.Tree;
+
 import java.io.Serializable;
 
 public class BinaryTree<T> implements Serializable, Tree<T> {

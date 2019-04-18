@@ -229,7 +229,7 @@ public class TreeApi<T> {
         if (a.isEmpty())
             return;
         ArrayList listRoot = new ArrayList();
-        DynamicQueue<BinaryTree<T>> queueTree = new DynamicQueue();
+        DynamicQueue<Tree<T>> queueTree = new DynamicQueue();
         queueTree.enqueue(a);
 
         while(!queueTree.isEmpty()){
@@ -243,7 +243,7 @@ public class TreeApi<T> {
 
     }
 
-    private T makeQueue(DynamicQueue<BinaryTree<T>> queue) {
+    private T makeQueue(DynamicQueue<Tree<T>> queue) {
         if(!queue.peek().getLeft().isEmpty())
             queue.enqueue(queue.peek().getLeft());
 
