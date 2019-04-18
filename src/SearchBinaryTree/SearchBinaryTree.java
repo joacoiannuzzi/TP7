@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class SearchBinaryTree<T> {
     private DoubleNode<T> root;
 
-    private SearchBinaryTree(){
+    public SearchBinaryTree(){
         root = null;
     }
 

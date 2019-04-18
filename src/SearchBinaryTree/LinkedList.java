@@ -3,15 +3,15 @@ package SearchBinaryTree;
 import BinaryTree.Node;
 
 public class LinkedList<T> {
-    Node head;
-    int size;
+    Node<T> head;
+    private int size;
 
     public LinkedList() {
         this.size = 0;
     }
 
     public void insert(T data){
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node(data);
         newNode.setNext(null);
 
         if(this.head == null){
@@ -29,8 +29,8 @@ public class LinkedList<T> {
     }
 
     public void deleteByKey(T key){
-        Node currentNode = this.head;
-        Node previous = null;
+        Node<T> currentNode = this.head;
+        Node<T> previous = null;
 
         if(currentNode != null && currentNode.getData() == key){
             this.head = currentNode.getNext();
@@ -49,6 +49,30 @@ public class LinkedList<T> {
         } else {
             throw new RuntimeException("Not found");
         }
+    }
+
+    public T getAtPosition(int index){
+        Node<T> currentNode = this.head;
+        Node<T> previous = null;
+
+        if(index == 0 && currentNode != null){
+            return currentNode.getData();
+        }
+
+        int counter = 0;
+        Node<T> element = new Node<T>();
+
+        while (currentNode != null){
+            if(counter == index){
+                element =  previous;
+            } else {
+                previous = currentNode;
+                currentNode = currentNode.getNext();
+                counter++;
+            }
+        }
+
+        return element.getData();
     }
 
     public int getSize() {
