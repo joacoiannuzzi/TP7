@@ -2,10 +2,9 @@ package SearchBinaryTree;
 
 import BinaryTreeApi.Tree;
 
-import java.io.Serializable;
-
 public class SearchBinaryTree<T> implements Tree<T> {
-    private DoubleNode<T> root;
+
+    DoubleNode<T> root;
 
     public SearchBinaryTree(){
         root = null;
@@ -29,7 +28,6 @@ public class SearchBinaryTree<T> implements Tree<T> {
         SearchBinaryTree<T> t = new SearchBinaryTree<T>();
         t.root = root.right;
         return t;
-
     }
 
     public boolean exist(Comparable<T> x){
@@ -84,6 +82,8 @@ public class SearchBinaryTree<T> implements Tree<T> {
     }
 
     private DoubleNode<T> search(DoubleNode<T> t, Comparable<T> x){
+        if (t == null)
+            throw new RuntimeException("Not found");
         if(x.compareTo(t.elem) == 0){
             return t;
         }else if(x.compareTo(t.elem) < 0){
@@ -130,21 +130,5 @@ public class SearchBinaryTree<T> implements Tree<T> {
             t = t.right;
         }
         return t;
-    }
-
-    private class DoubleNode <T> implements Serializable {
-
-        T elem;
-        DoubleNode<T> right, left;
-
-        public DoubleNode(){
-            elem = null;
-        }
-
-        public DoubleNode(T o, DoubleNode<T> left, DoubleNode<T> right) {
-            elem = o;
-            this.right = right;
-            this.left = left;
-        }
     }
 }

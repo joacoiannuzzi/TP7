@@ -1,6 +1,5 @@
 package SearchBinaryTreeApi;
 
-import BinaryTree.BinaryTree;
 import BinaryTree.DynamicQueue;
 import SearchBinaryTree.Lamp;
 import SearchBinaryTree.SearchBinaryTree;
@@ -44,8 +43,8 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
         a.remove(lamp);
     }
 
-    public void modify(SearchBinaryTree<Lamp> a, Lamp lamp) {
-
+    public void modify(SearchBinaryTree<Lamp> a, Lamp lamp, int q) {
+        a.search(lamp).setAmount(q);
     }
 
     public void showStock(SearchBinaryTree<Lamp> a) {
