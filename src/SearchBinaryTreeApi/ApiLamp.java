@@ -2,6 +2,7 @@ package SearchBinaryTreeApi;
 
 import BinaryTree.DynamicQueue;
 import BinaryTreeApi.Tree;
+import SearchBinaryTree.Lamp;
 import SearchBinaryTree.*;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
             }
     }
 
-    public void insert(SearchBinaryTree<Lamp> a, Lamp lamp) {
+    public void insert(LampTree a, Lamp lamp) {
         a.insert(lamp);
     }
 
@@ -55,7 +56,7 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
         a.search(code).setLampWatts(watts);
     }
 
-    public void showStock(SearchBinaryTree<Lamp> a) {
+    public void showStock(LampTree a) {
         inorder(a);
     }
 
@@ -72,15 +73,37 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
 
         switch (option){
             case 0:
-                System.out.println("Enter an: lampCode, lampType, lampWatts, lampAmount");
+                System.out.println("Enter a: lampCode, lampType, lampWatts, lampAmount");
                 Lamp lamp = new Lamp(scanner.next().toUpperCase(), scanner.next(), scanner.nextInt(), scanner.nextInt());
                 insert(a, lamp);
                 break;
             case 1:
+                System.out.println("Enter a lampCode to remove: ");
                 remove(a, scanner.next());
                 break;
             case 2:
+                System.out.println("Enter a lampCode to modify: ");
+                String code = scanner.next();
 
+                System.out.println("Enter an option: ");
+                int o = scanner.nextInt();
+                while (o != 3){
+                switch (o) {
+                    case 0:
+                        System.out.println("Enter an Amount: ");
+                        modifyAmount(a, code, scanner.nextInt());
+                        break;
+                    case 1:
+                        System.out.println("Enter a Type: ");
+                        modifyType(a, code, scanner.next());
+                        break;
+                    case 2:
+                        System.out.println("Enter Watts: ");
+                        modifyWatts(a, code, scanner.nextInt());
+                        break;
+                    }
+                    o = scanner.nextInt();
+                }
                 break;
             case 3:
                 showStock(a);

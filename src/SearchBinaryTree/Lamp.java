@@ -6,7 +6,7 @@ public class Lamp implements Comparable<Lamp>{
     int lampWatts, amount;
 
     public Lamp(String lampCode, String lampType, int lampWatts, int amount) {
-        if(lampCode.length() != 5 && lampType.length() >= 10){
+        if(lampCode.length() != 5 || lampType.length() >= 10){
             throw new RuntimeException("Invalid input");
         }
         this.lampCode = lampCode;
@@ -20,7 +20,7 @@ public class Lamp implements Comparable<Lamp>{
                 + lampType + " LampWatts: " + lampWatts + " Amount: " + amount);
     }
 
-    public void setLampCode(String lampCode) {
+    public void setLampCode(String lampCode) { //TODO: agregar condiciones.
         this.lampCode = lampCode;
     }
 
