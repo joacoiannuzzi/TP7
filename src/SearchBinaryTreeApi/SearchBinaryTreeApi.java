@@ -1,11 +1,8 @@
 package SearchBinaryTreeApi;
 
-import BinaryTree.DynamicQueue;
 import BinaryTreeApi.TreeApi;
 import SearchBinaryTree.LinkedList;
 import SearchBinaryTree.SearchBinaryTree;
-
-import java.util.ArrayList;
 
 public abstract class SearchBinaryTreeApi<T> extends TreeApi<T> {
 
@@ -24,5 +21,4 @@ public abstract class SearchBinaryTreeApi<T> extends TreeApi<T> {
 
     //recorre el arbol por inorden
     public abstract void inorder(SearchBinaryTree<T> a);
-
 }

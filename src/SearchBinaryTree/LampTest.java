@@ -50,15 +50,15 @@ public class LampTest {
 
     public static void main(String[] args) {
         StockList productStock = new StockList();
-        productStock.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
-        productStock.insert(new Lamp("ABERE", "dEfficient", 8, 7));
-        productStock.insert(new Lamp("SAPEE", "oP_Efficient", 17, 7));
-        productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
-        productStock.insert(new Lamp("ADEJF", "medEfficient", 7, 7));
+        productStock.insert(new Lamp("ABCDE", "lowEff", 15, 30));
+        productStock.insert(new Lamp("ABERE", "dEffi", 8, 7));
+        productStock.insert(new Lamp("SAPEE", "oP_Eff", 17, 7));
+        productStock.insert(new Lamp("DEFDD", "highEff", 20, 24));
+        productStock.insert(new Lamp("ADEJF", "medEff", 7, 7));
 
         ApiLamp searchBinaryTreeApi = new ApiLamp();
 
-        SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);
+        LampTree searchBinaryTree = (LampTree) searchBinaryTreeApi.importListData(productStock); //TODO: solucionar lo del casteo.
 
         searchBinaryTreeApi.inorder(searchBinaryTree);
 
