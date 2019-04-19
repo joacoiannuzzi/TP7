@@ -31,22 +31,22 @@ public class LampTest {
         searchBinaryTreeApi.perlevel(searchBinaryTree);
     }
 
-    @Test
-    public void importTest(){
-        StockList productStock = new StockList();
-        productStock.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
-        productStock.insert(new Lamp("ABERE", "dEfficient", 8, 7));
-        productStock.insert(new Lamp("SAPEE", "oP_Efficient", 17, 7));
-        productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
-        productStock.insert(new Lamp("ADEJF", "medEfficient", 7, 7));
-
-
-        ApiLamp searchBinaryTreeApi = new ApiLamp();
-
-        SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);
-
-        searchBinaryTreeApi.inorder(searchBinaryTree);
-    }
+//    @Test
+//    public void importTest(){
+//        StockList productStock = new StockList();
+//        productStock.insert(new Lamp("ABCDE", "lowEfficient", 15, 30));
+//        productStock.insert(new Lamp("ABERE", "dEfficient", 8, 7));
+//        productStock.insert(new Lamp("SAPEE", "oP_Efficient", 17, 7));
+//        productStock.insert(new Lamp("DEFDD", "highEfficient", 20, 24));
+//        productStock.insert(new Lamp("ADEJF", "medEfficient", 7, 7));
+//
+//
+//        ApiLamp searchBinaryTreeApi = new ApiLamp();
+//
+//        SearchBinaryTree<Lamp> searchBinaryTree = searchBinaryTreeApi.importListData(productStock);
+//
+//        searchBinaryTreeApi.inorder(searchBinaryTree);
+//    }
 
     public static void main(String[] args) {
         StockList productStock = new StockList();

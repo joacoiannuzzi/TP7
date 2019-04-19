@@ -243,7 +243,7 @@ public class TreeApi<T> {
 
     }
 
-    private T makeQueue(DynamicQueue<Tree<T>> queue) {
+    public T makeQueue(DynamicQueue<Tree<T>> queue) {
         if(!queue.peek().getLeft().isEmpty())
             queue.enqueue(queue.peek().getLeft());
 
