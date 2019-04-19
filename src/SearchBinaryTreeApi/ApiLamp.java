@@ -2,7 +2,6 @@ package SearchBinaryTreeApi;
 
 import BinaryTree.DynamicQueue;
 import BinaryTreeApi.Tree;
-import SearchBinaryTree.Lamp;
 import SearchBinaryTree.*;
 
 import java.util.ArrayList;
@@ -44,15 +43,23 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
         a.remove(a.search(code));
     }
 
-    public void modify(SearchBinaryTree<Lamp> a, Lamp lamp, int q) {
-        a.search(lamp).setAmount(q);
+    public void modifyAmount(LampTree a, String code, int q) {
+        a.search(code).setAmount(q);
+    }
+
+    public void modifyType(LampTree a, String code, String type) {
+        a.search(code).setLampType(type);
+    }
+
+    public void modifyWatts(LampTree a, String code, int watts) {
+        a.search(code).setLampWatts(watts);
     }
 
     public void showStock(SearchBinaryTree<Lamp> a) {
         inorder(a);
     }
 
-    public void options(SearchBinaryTree<Lamp> a){
+    public void options(LampTree a){
 
         System.out.println("Options: ");
         System.out.println("0 -> Add a Lamp");
@@ -70,7 +77,7 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
                 insert(a, lamp);
                 break;
             case 1:
-
+                remove(a, scanner.next());
                 break;
             case 2:
 
