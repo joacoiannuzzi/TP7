@@ -1,5 +1,4 @@
-package BinaryTree;
-
+package SearchBinaryTreeApi;
 
 public class DynamicQueue<T> implements Queue<T> {
 

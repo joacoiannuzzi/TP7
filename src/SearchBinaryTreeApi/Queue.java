@@ -1,4 +1,4 @@
-package BinaryTree;
+package SearchBinaryTreeApi;
 
 public interface Queue<T> {
 

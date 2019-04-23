@@ -1,7 +1,5 @@
 package SearchBinaryTreeApi;
 
-import BinaryTree.DynamicQueue;
-import BinaryTreeApi.Tree;
 import SearchBinaryTree.Lamp;
 import SearchBinaryTree.*;
 

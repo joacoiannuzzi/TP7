@@ -1,6 +1,6 @@
 package SearchBinaryTree;
 
-import BinaryTree.Node;
+import SearchBinaryTreeApi.Node;
 
 public class StockList extends LinkedList<Lamp> {
 
