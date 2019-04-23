@@ -94,6 +94,8 @@ public class SearchBinaryTree<T> implements Tree<T> {
     }
 
     private DoubleNode<T> insert(DoubleNode<T> t, Comparable<T> x){
+        if (x.compareTo(t.elem) == 0)
+            throw new RuntimeException("The element is already in the tree");
         if(t == null){
             t = new DoubleNode<T>();
             t.elem = (T) x;
