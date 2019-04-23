@@ -106,6 +106,8 @@ public class SearchBinaryTree<T> implements Tree<T> {
     }
 
     private DoubleNode<T> remove(DoubleNode<T> t, Comparable<T> x){
+        if (t == null)
+            throw new RuntimeException("Not found");
         if(x.compareTo(t.elem) < 0){
             t.left = remove(t.left, x);
         } else if(x.compareTo(t.elem) > 0){

@@ -15,6 +15,13 @@ public class Lamp implements Comparable<Lamp>{
         this.amount = amount;
     }
 
+    public Lamp(String lampCode) {
+        if(lampCode.length() != 5)
+            throw new RuntimeException("Invalid input");
+        this.lampCode = lampCode;
+    }
+
+
     public void printData(){
         System.out.println("LampCode: " + lampCode + " LampType: "
                 + lampType + " LampWatts: " + lampWatts + " Amount: " + amount);
@@ -54,16 +61,11 @@ public class Lamp implements Comparable<Lamp>{
 
     @Override
     public int compareTo(Lamp o) {
-        if(this.lampWatts > o.lampWatts){
+        if(this.lampCode.compareTo(o.lampCode) > 0){
             return 1;
-        } else if(this.lampWatts < o.lampWatts){
+        } else if(this.lampCode.compareTo(o.lampCode) < 0){
             return -1;
         }
         return 0;
     }
-
-//    @Override
-//    public int compareTo(Lamp o){
-//      return this.lampCode.compareTo(o.lampCode);
-//    }
 }
