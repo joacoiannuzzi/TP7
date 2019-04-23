@@ -1,6 +1,6 @@
 package SearchBinaryTree;
 
-import BinaryTreeApi.Tree;
+import SearchBinaryTreeApi.Tree;
 
 public class SearchBinaryTree<T> implements Tree<T> {
 

@@ -1,4 +1,4 @@
-package BinaryTree;
+package SearchBinaryTreeApi;
 
 import java.io.Serializable;
 
