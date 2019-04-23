@@ -64,8 +64,6 @@ public class ApiLamp extends SearchBinaryTreeApi<Lamp> {
         inorder(a);
     }
 
-
-
     public void options(SearchBinaryTree<Lamp> a){
 
         Scanner scanner = new Scanner(System.in);
