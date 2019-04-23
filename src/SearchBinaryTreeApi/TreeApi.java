@@ -236,8 +236,6 @@ public class TreeApi<T> {
         for (Object o : listRoot) {
             System.out.print(o + " ");
         }
-
-
     }
 
     public T makeQueue(DynamicQueue<Tree<T>> queue) {

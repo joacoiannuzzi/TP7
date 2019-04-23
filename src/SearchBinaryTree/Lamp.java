@@ -27,11 +27,10 @@ public class Lamp implements Comparable<Lamp>{
                 + lampType + " LampWatts: " + lampWatts + " Amount: " + amount);
     }
 
-    public void setLampCode(String lampCode) { //TODO: agregar condiciones.
-        this.lampCode = lampCode;
-    }
-
     public void setLampType(String lampType) {
+        if(lampType.length() >= 10){
+            throw new RuntimeException("Invalid input");
+        }
         this.lampType = lampType;
     }
 
