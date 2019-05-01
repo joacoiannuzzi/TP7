@@ -2,8 +2,8 @@ package SearchBinaryTree;
 
 public class Lamp implements Comparable<Lamp>{
 
-    String lampCode, lampType;
-    int lampWatts, amount;
+    private String lampCode, lampType;
+    private int lampWatts, amount;
 
     public Lamp(String lampCode, String lampType, int lampWatts, int amount) {
         if(lampCode.length() != 5 || lampType.length() >= 10){
